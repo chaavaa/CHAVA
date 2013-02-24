@@ -26,10 +26,10 @@ public class GooglePlacesSample {
 	private static final HttpTransport transport = new ApacheHttpTransport();
 	
 	// Fill in the API key you want to use.
-	private static final String API_KEY = "AIzaSyDNZWkRM4lxn8gtAMwe2zZZWjnRrgAON1U";
+	private static final String API_KEY = "";
 	
 	// The different Places API endpoints.
-	private static final String PLACES_TEXT_SEARCH_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json";
+	private static final String PLACES_TEXT_SEARCH_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
 	
 	private static final boolean PRINT_AS_STRING = false;
 	
@@ -57,8 +57,8 @@ public class GooglePlacesSample {
 			HttpRequest request = httpRequestFactory.buildGetRequest(new GenericUrl(PLACES_TEXT_SEARCH_URL));
 			request.url.put("key", API_KEY);
 			request.url.put("location", latitude + "," + longitude);
-			request.url.put("radius", 5000); //metres
-			request.url.put("sensor", "false");
+			request.url.put("radius", 32000); //metres
+			request.url.put("sensor", "true");
 			request.url.put("query", query);
 			
 			if (PRINT_AS_STRING) {
